@@ -16,4 +16,4 @@
 | 23521493 | Cao Trình Thịnh  | caotrinhthinh@gmail.com | Member |
 
 ### Task Breakdown
-- Feature: matchcard, timer, movecounter, star, replay, star scene, end game
+- Feature: matchcard, timer, movecounter, star, replay, menu game, end game
