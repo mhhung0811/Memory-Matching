@@ -11,7 +11,7 @@
 | MSSV     | Họ và Tên        | Email                   | Vai trò     |
 |----------|------------------|-------------------------|-------------|
 | 22520510 | Mai Hoàng Hưng |  mhhung0811@gmail.com | Leader |
-| 21522743 | Nguyễn Triệu Tữ |  | nguyentrieutu121203@gmail.com |
+| 21522743 | Nguyễn Triệu Tữ | nguyentrieutu121203@gmail.com | Member |
 | 22520375 | Vương Dương Thái Hà  | vuongha16104@gmail.com | Member |
 | 23521493 | Cao Trình Thịnh  | caotrinhthinh@gmail.com | Member |
 
