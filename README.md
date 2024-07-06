@@ -15,4 +15,6 @@
 | 22520375 | Vương Dương Thái Hà  | vuongha16104@gmail.com | Member |
 | 23521493 | Cao Trình Thịnh  | caotrinhthinh@gmail.com | Member |
 
+### Task Breakdown
+- Feature: card, timer, movecounter, star, replay, star scene, end game
 
