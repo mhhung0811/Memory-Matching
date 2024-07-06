@@ -1,7 +1,18 @@
+<p align="center">
+  <a href="https://www.uit.edu.vn/" title="Trường Đại học Công nghệ Thông tin" style="border: 5;">
+    <img src="https://i.imgur.com/WmMnSRt.png" alt="Trường Đại học Công nghệ Thông tin | University of Information Technology">
+  </a>
+</p>
+
+
 # Memory-Matching
 
-### Contributors:
-- Mai Hoàng Hưng - Team Leader
-- Vương Dương Thái Hà - Member
-- Cao Trình Thịnh - Member
-- Nguyễn Triệu Tử - Member
+### Thông tin thành viên
+| MSSV     | Họ và Tên        | Email                   | Vai trò     |
+|----------|------------------|-------------------------|-------------|
+|  | Mai Hoàng Hưng |  mhhung0811@gmail.com | Leader |
+|  | Nguyễn Triệu Tữ |  | Member |
+| 22520375 | Vương Dương Thái Hà  | vuongha16104@gmail.com | Member |
+|  | Cao Trình Thịnh  | caotrinhthinh@gmail.com | Member |
+
+
