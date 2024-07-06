@@ -10,9 +10,9 @@
 ### Thông tin thành viên
 | MSSV     | Họ và Tên        | Email                   | Vai trò     |
 |----------|------------------|-------------------------|-------------|
-|  | Mai Hoàng Hưng |  mhhung0811@gmail.com | Leader |
+| 22520510 | Mai Hoàng Hưng |  mhhung0811@gmail.com | Leader |
 |  | Nguyễn Triệu Tữ |  | Member |
 | 22520375 | Vương Dương Thái Hà  | vuongha16104@gmail.com | Member |
-|  | Cao Trình Thịnh  | caotrinhthinh@gmail.com | Member |
+| 23521493 | Cao Trình Thịnh  | caotrinhthinh@gmail.com | Member |
 
 
