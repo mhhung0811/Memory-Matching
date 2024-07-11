@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e38393b71f9c0bb43bb68d213e01ed25, type: 3}
+  m_Name: CardConfigs
+  m_EditorClassIdentifier: 
+  card_configs:
+  - card_id: 0
+    card_image: {fileID: 21300000, guid: 20737f9011807c642806e6a7db0c8774, type: 3}
+  - card_id: 1
+    card_image: {fileID: 21300000, guid: 8677dd256ee2d6d4b863fcdf9f9fcab3, type: 3}
+  - card_id: 2
+    card_image: {fileID: 21300000, guid: db61de346e1e10c49b240dd63f2c8623, type: 3}
+  - card_id: 3
+    card_image: {fileID: 21300000, guid: 5418f8fd08722364fb27ae24f8452150, type: 3}
+  - card_id: 4
+    card_image: {fileID: 21300000, guid: 9fbc2b25dddc82644828891be160eb41, type: 3}
+  - card_id: 5
+    card_image: {fileID: 21300000, guid: 5a3bb92d500b1664b93dcef5bed1fe37, type: 3}
+  - card_id: 6
+    card_image: {fileID: 21300000, guid: 31f49e0af248ba14883d2ac64002efd7, type: 3}
+  - card_id: 7
+    card_image: {fileID: 21300000, guid: 58d5132e2185a70468531fc8200db0bd, type: 3}
+  - card_id: 8
+    card_image: {fileID: 21300000, guid: deecd510fbddfc24da96eb9e5bcb3ce9, type: 3}
+  - card_id: 9
+    card_image: {fileID: 21300000, guid: af7f99b3113e58f4d9aff34f17b8b464, type: 3}
+  - card_id: 10
+    card_image: {fileID: 21300000, guid: e60728955d1409d4f848eca2b6f887e4, type: 3}
+  - card_id: 11
+    card_image: {fileID: 21300000, guid: 4f5fc264c8b2cc1488bf6ce8ae0eb839, type: 3}
+  - card_id: 12
+    card_image: {fileID: 21300000, guid: c066eb82b8b4e3147afb9b59059aaf0d, type: 3}
+  - card_id: 13
+    card_image: {fileID: 21300000, guid: b9511a724b5dff4438c96ee814f0843d, type: 3}
