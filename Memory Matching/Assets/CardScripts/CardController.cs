@@ -9,6 +9,19 @@ public class CardController : MonoBehaviour
 
     [SerializeField] private bool _matched;
 
+    [SerializeField] private int _card_id;
+
+    [SerializeField] private Board board;
+    private void Awake()
+    {
+        this.board = GameObject.Find("StageControl").GetComponent<Board>();
+    }
+    public int CardID
+    {
+        get { return _card_id; }
+        set { _card_id = value; }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,9 +35,9 @@ public class CardController : MonoBehaviour
     }
     public void LoadComponent()
     {
-        this.card_background.color = new Color(1f, 1f, 1f, 1f);
-        this.card_icon.color = new Color(1f, 1f, 1f, 1f);
-        this._matched = false;
+        card_background.color = new Color(1f, 1f, 1f, 1f);
+        card_icon.color = new Color(1f, 1f, 1f, 1f);
+        _matched = false;
 
     }
 
@@ -32,7 +45,9 @@ public class CardController : MonoBehaviour
     public void OnMouseDown()
     {
         card_background.color = new Color(0f, 188f / 255f, 212f / 255f, 1f);
-    }
+        board.List_Card_Choosen.Add(gameObject.transform);
+        board.CheckMatchingCard();
+    }   
 
     // Chuyển màu card khi matched
     public void CardMatched()
@@ -43,4 +58,5 @@ public class CardController : MonoBehaviour
             _matched = true;
         }
     }
+
 }
