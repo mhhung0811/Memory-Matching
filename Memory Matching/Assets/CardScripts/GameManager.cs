@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private LevelConfigs _all_level_configs;
 
     [Header("Current Stage")]
-    [SerializeField] private int current_stage = 1; 
+    [SerializeField] private int current_stage = 1;
     public static GameManager Instance;
     private void Awake()
     {

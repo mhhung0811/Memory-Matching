@@ -4,6 +4,7 @@ using UnityEditor;
 using UnityEngine;
 using System.Linq;
 using Unity.VisualScripting;
+using TMPro;
 
 public class Board : MonoBehaviour
 {
@@ -176,6 +177,8 @@ public class Board : MonoBehaviour
                 }
             }
             list_card_choosen.Clear();
+
+            InGameManager.Instance.AddMoveCount();
         }
     }
 
@@ -194,4 +197,14 @@ public class Board : MonoBehaviour
 
     }
 
+    public void Replay()
+    {
+        GameObject[] list_card = GameObject.FindGameObjectsWithTag("Card");
+
+        foreach (GameObject obj in list_card)
+        {
+            if (obj) Destroy(obj.gameObject);
+        }
+        InitBoard();
+    }
 }
