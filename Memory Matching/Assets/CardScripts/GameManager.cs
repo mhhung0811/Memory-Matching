@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour
     [Header("Level configs")]
     [SerializeField] private LevelConfigs _all_level_configs;
 
+    [Header("Audio Configs")]
+    [SerializeField] private AudioConfigs _all_audio_configs;
+
     [Header("Current Stage")]
     [SerializeField] private int current_stage = 1;
     public static GameManager Instance;
@@ -56,5 +59,10 @@ public class GameManager : MonoBehaviour
     public LevelConfigs GetLevelConfigs()
     {
         return _all_level_configs;
+    }
+
+    public AudioConfigs GetAudioConfigs()
+    {
+        return _all_audio_configs;
     }
 }

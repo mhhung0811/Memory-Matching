@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 131b569c91c884e00998ce8d08ae80db
+timeCreated: 1512938447
+licenseType: Store
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Veleka
+  fontNames:
+  - Veleka
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
