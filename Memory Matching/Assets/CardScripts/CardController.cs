@@ -56,6 +56,7 @@ public class CardController : MonoBehaviour
     // Xử lí sự kiện cick card sẽ hiển thị card và đổi màu
     public void OnMouseDown()
     {
+        if (InGameManager.Instance.isPaused) return;
         StartFlipUp();
     }   
 
