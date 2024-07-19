@@ -178,7 +178,7 @@ public class Board : MonoBehaviour
             }
             list_card_choosen.Clear();
 
-            InGameManager.Instance.AddMoveCount();
+            InGameManager.Instance.MoveCount();
         }
     }
 

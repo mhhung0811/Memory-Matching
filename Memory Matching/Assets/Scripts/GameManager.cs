@@ -65,4 +65,9 @@ public class GameManager : MonoBehaviour
     {
         return _all_audio_configs;
     }
+
+    public LevelConfig CurrentLevelConfig()
+    {
+        return _all_level_configs.all_level_configs[current_stage-1];
+    }
 }
