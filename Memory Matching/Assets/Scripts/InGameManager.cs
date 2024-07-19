@@ -49,11 +49,11 @@ public class InGameManager : MonoBehaviour
     void Start()
     {
         if (board != null) levelInfo = GameManager.Instance.CurrentLevelConfig();
-        moveCounter = 0;
+        moveCounter = levelInfo.number_of_moves;
         timeCounter = (int)levelInfo.time_limit;
         starCounter = 3;
         timer = 0;
-        moveCounterText.text = "0";
+        moveCounterText.text = moveCounter.ToString();
         TimeCountDown();
         starCounterText.text = "3";
 
