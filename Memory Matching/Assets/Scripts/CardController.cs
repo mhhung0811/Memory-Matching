@@ -57,6 +57,7 @@ public class CardController : MonoBehaviour
     public void OnMouseDown()
     {
         if (InGameManager.Instance.isPaused) return;
+        if (board.isExcuteCard) return;
         StartFlipUp();
     }   
 

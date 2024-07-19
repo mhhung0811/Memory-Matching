@@ -36,6 +36,11 @@ public class Board : MonoBehaviour
     [Header("Card Used In Game")]
     [SerializeField] protected List<Transform> list_card_choosen;
 
+    public bool isExcuteCard
+    {
+        get; private set;
+    }
+
     public List<Transform> List_Card_Choosen
     {
         get { return list_card_choosen; }
@@ -50,6 +55,8 @@ public class Board : MonoBehaviour
 
     public void LoadComponent()
     {
+        isExcuteCard = false;
+
         all_level_configs = GameManager.Instance.GetLevelConfigs().all_level_configs;
         curent_level = GameManager.Instance.GetCurrentStage();
 
@@ -160,6 +167,7 @@ public class Board : MonoBehaviour
         {
             int card_1 = list_card_choosen[0].gameObject.GetComponent<CardController>().CardID;
             int card_2 = list_card_choosen[1].gameObject.GetComponent<CardController>().CardID;
+            isExcuteCard = true;
             if (card_1 == card_2)
             {
                 foreach (Transform card in list_card_choosen)
@@ -195,7 +203,7 @@ public class Board : MonoBehaviour
             CardController cardController = obj.GetComponent<CardController>();
             cardController.StartFlipDown();
         }
-
+        isExcuteCard = false;
     }
 
     public void Replay()
