@@ -192,7 +192,8 @@ public class Board : MonoBehaviour
         }
         else if (code == 1)
         {
-            obj.gameObject.GetComponent<CardController>().LoadComponent();
+            CardController cardController = obj.GetComponent<CardController>();
+            cardController.StartFlipDown();
         }
 
     }

@@ -8,16 +8,24 @@ public class InGameManager : MonoBehaviour
 {
     [SerializeField] private Board board;
 
-    [Header("Couter")]
+    [Header("Counter")]
     [SerializeField] private TextMeshProUGUI moveCounterText;
     private int moveCounter;
     [SerializeField] private TextMeshProUGUI timeCounterText;
     private int timeCounter;
     [SerializeField] private TextMeshProUGUI starCounterText;
     private int starCounter;
+    [Header("UI control")]
     [SerializeField] private Button replayButton;
+    [SerializeField] private Button pauseButton;
+    [SerializeField] private CanvasRenderer pausePanel;
+    [SerializeField] private Button continueButton;
 
     private float timer;
+    public bool isPaused
+    {
+        get; private set;
+    }
 
     public static InGameManager Instance;
     private void Awake()
@@ -46,11 +54,15 @@ public class InGameManager : MonoBehaviour
         starCounterText.text = "3";
 
         replayButton.onClick.AddListener(Replay);
+        pauseButton.onClick.AddListener(Pause);
+        pausePanel.gameObject.SetActive(false);
+        continueButton.onClick.AddListener(Continue);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isPaused) return;
         timer += Time.deltaTime;
         if (timer > 1)
         {
@@ -96,6 +108,7 @@ public class InGameManager : MonoBehaviour
 
     public void Replay()
     {
+        if (isPaused) return;
         moveCounter = 0;
         timeCounter = 0;
         starCounter = 3;
@@ -105,5 +118,19 @@ public class InGameManager : MonoBehaviour
         starCounterText.text = "3";
 
         board.Replay();
+    }
+
+    public void Pause()
+    {
+        isPaused = true;
+        Time.timeScale = 0;
+        pausePanel.gameObject.SetActive(true);
+    }
+
+    public void Continue()
+    {
+        isPaused = false;
+        Time.timeScale = 1;
+        pausePanel.gameObject.SetActive(false);
     }
 }

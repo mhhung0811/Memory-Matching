@@ -5,16 +5,22 @@ using UnityEngine;
 public class CardController : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer card_background;
-    [SerializeField] private SpriteRenderer card_icon;
+    [SerializeField] private SpriteRenderer card_icon;    
 
     [SerializeField] private bool _matched;
 
     [SerializeField] private int _card_id;
 
     [SerializeField] private Board board;
+
+    private Animator animator;
+
+    private Color color_normal;
+    private Color color_selected;
+    private Color color_matched;
     private void Awake()
     {
-        this.board = GameObject.Find("StageControl").GetComponent<Board>();
+        //this.board = GameObject.Find("StageControl").GetComponent<Board>();
     }
     public int CardID
     {
@@ -35,18 +41,23 @@ public class CardController : MonoBehaviour
     }
     public void LoadComponent()
     {
-        card_background.color = new Color(1f, 1f, 1f, 1f);
-        card_icon.color = new Color(1f, 1f, 1f, 1f);
+        color_normal = new Color(1f, 1f, 1f, 1f);
+        color_selected = new Color(0f, 188f / 255f, 212f / 255f, 1f);
+        color_matched = new Color(0f, 191f / 255f, 165f / 255f, 1f);
+
+        card_background.color = color_normal;
+        card_icon.color = color_normal;
         _matched = false;
 
+        board = FindFirstObjectByType<Board>().GetComponent<Board>();
+        animator = GetComponent<Animator>();        
     }
 
     // Xử lí sự kiện cick card sẽ hiển thị card và đổi màu
     public void OnMouseDown()
     {
-        card_background.color = new Color(0f, 188f / 255f, 212f / 255f, 1f);
-        board.List_Card_Choosen.Add(gameObject.transform);
-        board.CheckMatchingCard();
+        if (InGameManager.Instance.isPaused) return;
+        StartFlipUp();
     }   
 
     // Chuyển màu card khi matched
@@ -54,9 +65,44 @@ public class CardController : MonoBehaviour
     {
         if (!_matched)
         {
-            card_background.color = new Color(0f, 191f / 255f, 165f / 255f, 1f);
+            card_background.color = color_matched;
             _matched = true;
         }
     }
 
+    public void StartFlipDown()
+    {
+        animator.SetBool("isDown", true);
+        Debug.Log("Is down");
+    }
+
+    public void IsFlipDown()
+    {
+        card_background.color = color_normal;
+        card_icon.color = color_normal;
+        _matched = false;
+    }
+
+    public void EndFlipDown()
+    {
+        animator.SetBool("isDown", false);
+    }
+
+    public void StartFlipUp()
+    {
+        animator.SetBool("isUp", true);
+        Debug.Log("Is up");
+    }
+
+    public void IsFlipUp()
+    {
+        card_background.color = color_selected;
+        board.List_Card_Choosen.Add(gameObject.transform);
+        board.CheckMatchingCard();
+    }
+
+    public void EndFlipUp()
+    {
+        animator.SetBool("isUp", false);
+    }
 }
