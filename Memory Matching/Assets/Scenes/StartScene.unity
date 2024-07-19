@@ -2292,6 +2292,7 @@ MonoBehaviour:
   _toggle_female: {fileID: 1851407192}
   _slider_sound: {fileID: 535348284}
   _slider_music: {fileID: 2068821484}
+  _setting_popup_animator: {fileID: 1278271132}
 --- !u!4 &760931001
 Transform:
   m_ObjectHideFlags: 0

@@ -14,25 +14,32 @@ public class StartSceneUI : MonoBehaviour
     [SerializeField] private Slider _slider_sound;
     [SerializeField] private Slider _slider_music;
 
+    [SerializeField] private Animator _setting_popup_animator;
+
+    private readonly int _open = Animator.StringToHash("Open");
 
     public void PlayGame()
     {
         AudioManager.Instance.PlayFX(1);
-        SceneManager.LoadSceneAsync("MainScene");
+        SceneManager.LoadSceneAsync("LevelScene");
     }
 
     public void OpenSettingPopup() 
     {
+        AudioManager.Instance.PlayFX(1);
         Debug.Log("Setting popup");
+        SetBoolPopup(true);
         _setting_button.gameObject.SetActive(false);
-        _setting_popup.gameObject.SetActive(true);
+        /*_setting_popup.gameObject.SetActive(true);*/
 
 
     }
     public void CloseSettingPopup()
     {
+        AudioManager.Instance.PlayFX(1);
+        SetBoolPopup(false);
         _setting_button.gameObject.SetActive(true);
-        _setting_popup.gameObject.SetActive(false);
+        /*_setting_popup.gameObject.SetActive(false);*/
     }
     public void ChangeGender(int value)
     {
@@ -54,5 +61,9 @@ public class StartSceneUI : MonoBehaviour
         AudioManager.Instance.audioSourceFX.volume = _slider_sound.value;
     }
     
+    public void SetBoolPopup(bool value)
+    {
+        _setting_popup_animator.SetBool(_open, value); 
+    }
 }
 
