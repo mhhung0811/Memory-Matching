@@ -69,10 +69,10 @@ public class LevelMapButton : MonoBehaviour
     }
     public void LoadComponent()
     {
-        
+
         // Đoạn lệnh tiếp theo cần lấy level của người chơi là set trạng thái cho các button
-        player_level = 17;
-        num_star = 3;
+        player_level = SaveManager.NextLevel();
+        num_star = SaveManager.LoadStar(_level);
 
         _shining_animation.gameObject.SetActive(false);
         _blue_level_text.text = _pink_level_text.text =  $"{_level}";

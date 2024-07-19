@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class InGameManager : MonoBehaviour
@@ -17,6 +18,7 @@ public class InGameManager : MonoBehaviour
     private int starCounter;
 
     private LevelConfig levelInfo;
+    private int cardNum;
 
     [Header("UI control")]
     [SerializeField] private Button replayButton;
@@ -49,6 +51,7 @@ public class InGameManager : MonoBehaviour
     void Start()
     {
         if (board != null) levelInfo = GameManager.Instance.CurrentLevelConfig();
+
         moveCounter = levelInfo.number_of_moves;
         timeCounter = (int)levelInfo.time_limit;
         starCounter = 3;
@@ -56,6 +59,8 @@ public class InGameManager : MonoBehaviour
         moveCounterText.text = moveCounter.ToString();
         TimeCountDown();
         starCounterText.text = "3";
+
+        cardNum = levelInfo.col * levelInfo.row;
 
         replayButton.onClick.AddListener(Replay);
         pauseButton.onClick.AddListener(Pause);
@@ -72,6 +77,11 @@ public class InGameManager : MonoBehaviour
         {
             timer = 0;
             TimeCountDown();
+        }
+        if (cardNum <= 0)
+        {
+            EndLevel();
+            cardNum = 1;
         }
     }
 
@@ -111,7 +121,6 @@ public class InGameManager : MonoBehaviour
 
     public void StarCount(int star)
     {
-        Debug.Log("count star");
         if (starCounter >= star)
         {
             starCounter = star;
@@ -145,5 +154,21 @@ public class InGameManager : MonoBehaviour
         isPaused = false;
         Time.timeScale = 1;
         pausePanel.gameObject.SetActive(false);
+    }
+
+    public void EndLevel()
+    {
+        Debug.Log("end level");
+        ToLevelScene();
+    }
+
+    public void ToLevelScene()
+    {
+        SceneManager.LoadSceneAsync("LevelScene");
+    }
+
+    public void DeleteCard()
+    {
+        if (cardNum > 0) cardNum--;
     }
 }
