@@ -197,6 +197,7 @@ public class Board : MonoBehaviour
         {
             Destroy(obj.gameObject);
             //obj.gameObject.GetComponent<CardController>().CardMatched();
+            InGameManager.Instance.DeleteCard();
         }
         else if (code == 1)
         {
