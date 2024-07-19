@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class MainMenuManager : MonoBehaviour
 {
     [SerializeField] private List<LevelConfig> _all_level_configs;
+
     private void Start()
     {
         this.LoadComponent();

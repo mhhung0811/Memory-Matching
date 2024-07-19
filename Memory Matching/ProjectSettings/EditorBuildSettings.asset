@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CardScene.unity
     guid: 480856471fc82644a83c34b674b18950
+  - enabled: 1
+    path: Assets/Scenes/LevelScene.unity
+    guid: 1676c6fae2ed13f4681391590067767f
+  - enabled: 1
+    path: Assets/Scenes/StartScene.unity
+    guid: 835cef1a9dad3234b90672f2463103e6
   m_configObjects: {}

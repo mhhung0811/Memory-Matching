@@ -40,6 +40,10 @@ public class LevelMapButton : MonoBehaviour
     [Header("Shining Animation")]
     [SerializeField] private Image _shining_animation;
 
+    private int player_level = 1;
+
+    private int num_star = 0;
+
     enum LevelType
     {
         Normal,
@@ -55,12 +59,17 @@ public class LevelMapButton : MonoBehaviour
     }
     public void ClickButton()
     {
+        if(player_level < _level)
+        {
+            return;
+        }
         Debug.Log("Use Level " + _level);
+        
+        LevelSceneUIManager.Instance.OpenStartLevelPanel(_level, 120, 30, num_star , 30);
     }
     public void LoadComponent()
     {
-        int player_level = 1;
-        int num_star = 0;
+        
         // Đoạn lệnh tiếp theo cần lấy level của người chơi là set trạng thái cho các button
         player_level = 17;
         num_star = 3;
