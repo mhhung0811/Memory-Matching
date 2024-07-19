@@ -15,6 +15,9 @@ public class InGameManager : MonoBehaviour
     private int timeCounter;
     [SerializeField] private TextMeshProUGUI starCounterText;
     private int starCounter;
+
+    private LevelConfig levelInfo;
+
     [Header("UI control")]
     [SerializeField] private Button replayButton;
     [SerializeField] private Button pauseButton;
@@ -45,12 +48,13 @@ public class InGameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        moveCounter = 0;
-        timeCounter = 0;
+        if (board != null) levelInfo = GameManager.Instance.CurrentLevelConfig();
+        moveCounter = levelInfo.number_of_moves;
+        timeCounter = (int)levelInfo.time_limit;
         starCounter = 3;
         timer = 0;
-        moveCounterText.text = "0";
-        timeCounterText.text = "0:00";
+        moveCounterText.text = moveCounter.ToString();
+        TimeCountDown();
         starCounterText.text = "3";
 
         replayButton.onClick.AddListener(Replay);
@@ -67,21 +71,29 @@ public class InGameManager : MonoBehaviour
         if (timer > 1)
         {
             timer = 0;
-            AddTimeCount();
+            TimeCountDown();
         }
     }
 
-    public void AddMoveCount()
+    public void MoveCount()
     {
-        moveCounter++;
+        if (levelInfo.number_of_moves > 0)
+        {
+            moveCounter--;
+            if (moveCounter == levelInfo.number_of_moves_2) StarCount(2);
+            else if (moveCounter == levelInfo.number_of_moves_1) StarCount(1);
+            else if (moveCounter == levelInfo.number_of_moves_0) StarCount(0);
+        }
+        else
+        {
+            moveCounter++;
+        }
         moveCounterText.text = moveCounter.ToString();
-        if (moveCounter > 15) RemoveStarCount();
     }
 
-    public void AddTimeCount()
+    public void TimeCountDown()
     {
-        timeCounter++;
-        
+        timeCounter--;
         string unit;
         if (timeCounter % 60 > 9)
         {
@@ -92,16 +104,17 @@ public class InGameManager : MonoBehaviour
             unit = "0" + (timeCounter % 60).ToString();
         }
         timeCounterText.text = $"{timeCounter / 60}:{unit}";
-
-        if (timeCounter == 60) RemoveStarCount();
-        if (timeCounter == 120) RemoveStarCount();
+        if (timeCounter == (int)levelInfo.time_2) StarCount(2);
+        else if (timeCounter == (int)levelInfo.time_1) StarCount(1);
+        else if (timeCounter == (int)levelInfo.time_0) StarCount(0);
     }
 
-    public void RemoveStarCount()
+    public void StarCount(int star)
     {
-        if (starCounter > 0)
+        Debug.Log("count star");
+        if (starCounter >= star)
         {
-            starCounter--;
+            starCounter = star;
             starCounterText.text = starCounter.ToString();
         }
     }

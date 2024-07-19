@@ -15,16 +15,199 @@ MonoBehaviour:
   all_level_configs:
   - level: 1
     row: 2
-    col: 4
-    time_limit: 120
-    number_of_mistakes: 99999
+    col: 2
+    time_limit: 30
+    time_2: 22
+    time_1: 16
+    time_0: 8
+    number_of_moves: 0
+    number_of_moves_2: 0
+    number_of_moves_1: 0
+    number_of_moves_0: 0
   - level: 2
     row: 2
-    col: 4
-    time_limit: 120
-    number_of_mistakes: 99999
+    col: 3
+    time_limit: 45
+    time_2: 35
+    time_1: 20
+    time_0: 10
+    number_of_moves: 0
+    number_of_moves_2: 0
+    number_of_moves_1: 0
+    number_of_moves_0: 0
   - level: 3
+    row: 2
+    col: 3
+    time_limit: 45
+    time_2: 35
+    time_1: 20
+    time_0: 10
+    number_of_moves: 0
+    number_of_moves_2: 0
+    number_of_moves_1: 0
+    number_of_moves_0: 0
+  - level: 4
+    row: 2
+    col: 4
+    time_limit: 60
+    time_2: 45
+    time_1: 30
+    time_0: 15
+    number_of_moves: 0
+    number_of_moves_2: 0
+    number_of_moves_1: 0
+    number_of_moves_0: 0
+  - level: 5
+    row: 2
+    col: 4
+    time_limit: 60
+    time_2: 45
+    time_1: 30
+    time_0: 15
+    number_of_moves: 0
+    number_of_moves_2: 0
+    number_of_moves_1: 0
+    number_of_moves_0: 0
+  - level: 6
+    row: 2
+    col: 4
+    time_limit: 60
+    time_2: 45
+    time_1: 30
+    time_0: 15
+    number_of_moves: 0
+    number_of_moves_2: 0
+    number_of_moves_1: 0
+    number_of_moves_0: 0
+  - level: 7
+    row: 3
+    col: 4
+    time_limit: 90
+    time_2: 70
+    time_1: 50
+    time_0: 30
+    number_of_moves: 0
+    number_of_moves_2: 0
+    number_of_moves_1: 0
+    number_of_moves_0: 0
+  - level: 8
+    row: 3
+    col: 4
+    time_limit: 90
+    time_2: 70
+    time_1: 50
+    time_0: 30
+    number_of_moves: 0
+    number_of_moves_2: 0
+    number_of_moves_1: 0
+    number_of_moves_0: 0
+  - level: 9
+    row: 3
+    col: 4
+    time_limit: 90
+    time_2: 70
+    time_1: 50
+    time_0: 30
+    number_of_moves: 0
+    number_of_moves_2: 0
+    number_of_moves_1: 0
+    number_of_moves_0: 0
+  - level: 10
     row: 4
     col: 4
     time_limit: 120
-    number_of_mistakes: 99999
+    time_2: 90
+    time_1: 60
+    time_0: 30
+    number_of_moves: 0
+    number_of_moves_2: 0
+    number_of_moves_1: 0
+    number_of_moves_0: 0
+  - level: 11
+    row: 4
+    col: 4
+    time_limit: 120
+    time_2: 90
+    time_1: 60
+    time_0: 30
+    number_of_moves: 28
+    number_of_moves_2: 15
+    number_of_moves_1: 10
+    number_of_moves_0: 4
+  - level: 12
+    row: 4
+    col: 4
+    time_limit: 120
+    time_2: 90
+    time_1: 60
+    time_0: 30
+    number_of_moves: 0
+    number_of_moves_2: 0
+    number_of_moves_1: 0
+    number_of_moves_0: 0
+  - level: 13
+    row: 4
+    col: 4
+    time_limit: 120
+    time_2: 90
+    time_1: 60
+    time_0: 30
+    number_of_moves: 0
+    number_of_moves_2: 0
+    number_of_moves_1: 0
+    number_of_moves_0: 0
+  - level: 14
+    row: 4
+    col: 4
+    time_limit: 120
+    time_2: 90
+    time_1: 60
+    time_0: 30
+    number_of_moves: 0
+    number_of_moves_2: 0
+    number_of_moves_1: 0
+    number_of_moves_0: 0
+  - level: 15
+    row: 4
+    col: 4
+    time_limit: 120
+    time_2: 90
+    time_1: 60
+    time_0: 30
+    number_of_moves: 0
+    number_of_moves_2: 0
+    number_of_moves_1: 0
+    number_of_moves_0: 0
+  - level: 16
+    row: 5
+    col: 4
+    time_limit: 150
+    time_2: 110
+    time_1: 70
+    time_0: 30
+    number_of_moves: 0
+    number_of_moves_2: 0
+    number_of_moves_1: 0
+    number_of_moves_0: 0
+  - level: 17
+    row: 5
+    col: 4
+    time_limit: 150
+    time_2: 110
+    time_1: 70
+    time_0: 30
+    number_of_moves: 0
+    number_of_moves_2: 0
+    number_of_moves_1: 0
+    number_of_moves_0: 0
+  - level: 18
+    row: 5
+    col: 4
+    time_limit: 150
+    time_2: 110
+    time_1: 70
+    time_0: 30
+    number_of_moves: 40
+    number_of_moves_2: 22
+    number_of_moves_1: 12
+    number_of_moves_0: 4

@@ -23,7 +23,24 @@ public class LevelConfig
     [Header("Time limit")]
     [Range(30,600)] public float time_limit;
 
-    [Header("Number of Mistakes")]
-    public int number_of_mistakes;
+    [Header("2 Star Time")]
+    [Range(0, 600)] public float time_2;
 
+    [Header("1 Star Time")]
+    [Range(0, 600)] public float time_1;
+
+    [Header("0 Star Time")]
+    [Range(0, 600)] public float time_0;
+
+    [Header("Number of Move")]
+    public int number_of_moves;
+
+    [Header("Number of Move 2 star")]
+    public int number_of_moves_2;
+
+    [Header("Number of Move 1 star")]
+    public int number_of_moves_1;
+
+    [Header("Number of Move 0 star")]
+    public int number_of_moves_0;
 }

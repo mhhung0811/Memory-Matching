@@ -18,6 +18,8 @@ public class CardController : MonoBehaviour
     private Color color_normal;
     private Color color_selected;
     private Color color_matched;
+
+    private bool isSelected;
     private void Awake()
     {
         //this.board = GameObject.Find("StageControl").GetComponent<Board>();
@@ -45,6 +47,8 @@ public class CardController : MonoBehaviour
         color_selected = new Color(0f, 188f / 255f, 212f / 255f, 1f);
         color_matched = new Color(0f, 191f / 255f, 165f / 255f, 1f);
 
+        isSelected = false;
+
         card_background.color = color_normal;
         card_icon.color = color_normal;
         _matched = false;
@@ -57,6 +61,8 @@ public class CardController : MonoBehaviour
     public void OnMouseDown()
     {
         if (InGameManager.Instance.isPaused) return;
+        if (board.isExcuteCard) return;
+        if (isSelected) return;
         StartFlipUp();
     }   
 
@@ -72,8 +78,8 @@ public class CardController : MonoBehaviour
 
     public void StartFlipDown()
     {
+        isSelected = false;
         animator.SetBool("isDown", true);
-        Debug.Log("Is down");
     }
 
     public void IsFlipDown()
@@ -90,8 +96,8 @@ public class CardController : MonoBehaviour
 
     public void StartFlipUp()
     {
+        isSelected = true;
         animator.SetBool("isUp", true);
-        Debug.Log("Is up");
     }
 
     public void IsFlipUp()
