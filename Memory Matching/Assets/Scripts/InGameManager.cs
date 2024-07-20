@@ -1,7 +1,9 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class InGameManager : MonoBehaviour
@@ -23,6 +25,12 @@ public class InGameManager : MonoBehaviour
     [SerializeField] private Button pauseButton;
     [SerializeField] private CanvasRenderer pausePanel;
     [SerializeField] private Button continueButton;
+
+
+    [SerializeField] private Animator _setting_popup_animator;
+
+    private readonly int _open = Animator.StringToHash("Open");
+
 
     private float timer;
     public bool isPaused
@@ -55,12 +63,8 @@ public class InGameManager : MonoBehaviour
         timer = 0;
         moveCounterText.text = moveCounter.ToString();
         TimeCountDown();
-        starCounterText.text = "3";
-
-        replayButton.onClick.AddListener(Replay);
-        pauseButton.onClick.AddListener(Pause);
-        pausePanel.gameObject.SetActive(false);
-        continueButton.onClick.AddListener(Continue);
+        // Sửa sau
+        //starCounterText.text = "3";
     }
 
     // Update is called once per frame
@@ -112,11 +116,12 @@ public class InGameManager : MonoBehaviour
     public void StarCount(int star)
     {
         Debug.Log("count star");
-        if (starCounter >= star)
+        // Sửa sau 
+        /*if (starCounter >= star)
         {
             starCounter = star;
             starCounterText.text = starCounter.ToString();
-        }
+        }*/
     }
 
     public void Replay()
@@ -135,15 +140,28 @@ public class InGameManager : MonoBehaviour
 
     public void Pause()
     {
+        SetBoolPopup(true);
         isPaused = true;
         Time.timeScale = 0;
-        pausePanel.gameObject.SetActive(true);
     }
 
     public void Continue()
     {
+        SetBoolPopup(false);
         isPaused = false;
         Time.timeScale = 1;
-        pausePanel.gameObject.SetActive(false);
+        
+    }
+
+    public void BackButton()
+    {
+        Continue();
+        AudioManager.Instance.PlayFX(1);
+        SceneManager.LoadSceneAsync("LevelScene");
+    }
+
+    public void SetBoolPopup(bool value)
+    {
+        _setting_popup_animator.SetBool(_open, value);
     }
 }
