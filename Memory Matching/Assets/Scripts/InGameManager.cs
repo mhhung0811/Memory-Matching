@@ -64,19 +64,20 @@ public class InGameManager : MonoBehaviour
         starCounter = 3;
         timer = 0;
         moveCounterText.text = moveCounter.ToString();
-        TimeCountDown();
+        //TimeCountDown();
         // sửa lỗi đoạn này 
         // Sửa sau
         //starCounterText.text = "3";
 
-        starCounterText.text = "3";
+        //starCounterText.text = "3";
 
         cardNum = levelInfo.col * levelInfo.row;
+        Debug.Log(cardNum);
 
-        replayButton.onClick.AddListener(Replay);
-        pauseButton.onClick.AddListener(Pause);
-        pausePanel.gameObject.SetActive(false);
-        continueButton.onClick.AddListener(Continue);
+        //replayButton.onClick.AddListener(Replay);
+        //pauseButton.onClick.AddListener(Pause);
+        //pausePanel.gameObject.SetActive(false);
+        //continueButton.onClick.AddListener(Continue);
 
     }
 
@@ -88,7 +89,7 @@ public class InGameManager : MonoBehaviour
         if (timer > 1)
         {
             timer = 0;
-            TimeCountDown();
+            //TimeCountDown();
         }
         if (cardNum <= 0)
         {
@@ -177,9 +178,10 @@ public class InGameManager : MonoBehaviour
 
     public void BackButton()
     {
-        Continue();
-        AudioManager.Instance.PlayFX(1);
-        SceneManager.LoadSceneAsync("LevelScene");
+        Debug.Log("back");
+        //Continue();
+        //AudioManager.Instance.PlayFX(1);
+        //SceneManager.LoadSceneAsync("LevelScene");
     }
 
     public void SetBoolPopup(bool value)
@@ -190,7 +192,7 @@ public class InGameManager : MonoBehaviour
     public void EndLevel()
     {
         Debug.Log("end level");
-        ToLevelScene();
+        //ToLevelScene();
     }
 
     public void ToLevelScene()

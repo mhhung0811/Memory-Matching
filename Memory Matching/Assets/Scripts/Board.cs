@@ -34,6 +34,8 @@ public class Board : MonoBehaviour
     [SerializeField] protected float offset_x = 1.2f; // Mặc định khoảng cách giữa các thẻ
     [SerializeField] protected float offset_y = 1.2f; // Mặc định khoảng cách giữa các thẻ
 
+    [SerializeField] protected RectTransform canva;
+
     public bool isExcuteCard { get; private set; }
 
     public List<Transform> List_Card_Choosen
@@ -91,6 +93,7 @@ public class Board : MonoBehaviour
 
     public void InitBoard()
     {
+
         // Lấy config của tất cả card;
         this.card_configs = GameManager.Instance.GetCardConfigs().card_configs;
 
@@ -132,7 +135,7 @@ public class Board : MonoBehaviour
             {
                 RectTransform obj = Instantiate(card_prefab);
                 obj.transform.SetParent(_grid_layout_group.gameObject.transform, false);
-                obj.gameObject.GetComponent<CardController>().CardID = randomList[0];
+                obj.GetComponent<CardController>().CardID = randomList[0];
 
                 // Lấy Transform của GameObject con
                 Transform childTransform = obj.transform.GetChild(0);

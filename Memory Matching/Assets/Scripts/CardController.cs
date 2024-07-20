@@ -14,7 +14,10 @@ public class CardController : MonoBehaviour
 
     [SerializeField] private Board board;
 
+    [SerializeField] private Button button;
+
     private Animator animator;
+    
 
     private Color color_normal;
     private Color color_selected;
@@ -49,6 +52,7 @@ public class CardController : MonoBehaviour
         color_matched = new Color(0f, 191f / 255f, 165f / 255f, 1f);
 
         isSelected = false;
+        button.onClick.AddListener(ClickCard);
 
         card_background.color = color_normal;
         card_icon.color = color_normal;
@@ -56,6 +60,11 @@ public class CardController : MonoBehaviour
 
         board = FindFirstObjectByType<Board>().GetComponent<Board>();
         animator = GetComponent<Animator>();        
+    }
+
+    private void OnMouseDown()
+    {
+        ClickCard();
     }
 
     // Xử lí sự kiện cick card sẽ hiển thị card và đổi màu
