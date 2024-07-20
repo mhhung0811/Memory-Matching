@@ -1,6 +1,7 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -25,6 +26,12 @@ public class InGameManager : MonoBehaviour
     [SerializeField] private Button pauseButton;
     [SerializeField] private CanvasRenderer pausePanel;
     [SerializeField] private Button continueButton;
+
+
+    [SerializeField] private Animator _setting_popup_animator;
+
+    private readonly int _open = Animator.StringToHash("Open");
+
 
     private float timer;
     public bool isPaused
@@ -58,6 +65,10 @@ public class InGameManager : MonoBehaviour
         timer = 0;
         moveCounterText.text = moveCounter.ToString();
         TimeCountDown();
+        // sửa lỗi đoạn này 
+        // Sửa sau
+        //starCounterText.text = "3";
+
         starCounterText.text = "3";
 
         cardNum = levelInfo.col * levelInfo.row;
@@ -66,6 +77,7 @@ public class InGameManager : MonoBehaviour
         pauseButton.onClick.AddListener(Pause);
         pausePanel.gameObject.SetActive(false);
         continueButton.onClick.AddListener(Continue);
+
     }
 
     // Update is called once per frame
@@ -121,11 +133,17 @@ public class InGameManager : MonoBehaviour
 
     public void StarCount(int star)
     {
+        Debug.Log("count star");
+        // Sửa lỗi đoạn này
+        // Sửa sau 
+        /*if (starCounter >= star)
+
         if (starCounter >= star)
+
         {
             starCounter = star;
             starCounterText.text = starCounter.ToString();
-        }
+        }*/
     }
 
     public void Replay()
@@ -144,16 +162,29 @@ public class InGameManager : MonoBehaviour
 
     public void Pause()
     {
+        SetBoolPopup(true);
         isPaused = true;
         Time.timeScale = 0;
-        pausePanel.gameObject.SetActive(true);
     }
 
     public void Continue()
     {
+        SetBoolPopup(false);
         isPaused = false;
         Time.timeScale = 1;
-        pausePanel.gameObject.SetActive(false);
+        
+    }
+
+    public void BackButton()
+    {
+        Continue();
+        AudioManager.Instance.PlayFX(1);
+        SceneManager.LoadSceneAsync("LevelScene");
+    }
+
+    public void SetBoolPopup(bool value)
+    {
+        _setting_popup_animator.SetBool(_open, value);
     }
 
     public void EndLevel()

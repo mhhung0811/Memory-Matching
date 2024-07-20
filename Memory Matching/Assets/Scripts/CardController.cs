@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CardController : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer card_background;
-    [SerializeField] private SpriteRenderer card_icon;    
+    [SerializeField] private Image card_background;
+    [SerializeField] private Image card_icon;    
 
     [SerializeField] private bool _matched;
 
@@ -58,12 +59,15 @@ public class CardController : MonoBehaviour
     }
 
     // Xử lí sự kiện cick card sẽ hiển thị card và đổi màu
-    public void OnMouseDown()
+    public void ClickCard()
     {
+        Debug.Log("Click Card");
         if (InGameManager.Instance.isPaused) return;
         if (board.isExcuteCard) return;
         if (isSelected) return;
         StartFlipUp();
+        
+
     }   
 
     // Chuyển màu card khi matched

@@ -58,6 +58,6 @@ public class StartGamePopUp : MonoBehaviour
     {
         GameManager.Instance.SetCurrentStage(level);
         Debug.Log(GameManager.Instance.GetCurrentStage());
-        SceneManager.LoadSceneAsync("CardScene");
+        SceneManager.LoadSceneAsync("GameScene");
     }
 }
