@@ -19,6 +19,7 @@ public class InGameManager : MonoBehaviour
     private int starCounter;
 
     private LevelConfig levelInfo;
+    private int cardNum;
 
     [Header("UI control")]
     [SerializeField] private Button replayButton;
@@ -57,14 +58,26 @@ public class InGameManager : MonoBehaviour
     void Start()
     {
         if (board != null) levelInfo = GameManager.Instance.CurrentLevelConfig();
+
         moveCounter = levelInfo.number_of_moves;
         timeCounter = (int)levelInfo.time_limit;
         starCounter = 3;
         timer = 0;
         moveCounterText.text = moveCounter.ToString();
         TimeCountDown();
+        // sửa lỗi đoạn này 
         // Sửa sau
         //starCounterText.text = "3";
+
+        starCounterText.text = "3";
+
+        cardNum = levelInfo.col * levelInfo.row;
+
+        replayButton.onClick.AddListener(Replay);
+        pauseButton.onClick.AddListener(Pause);
+        pausePanel.gameObject.SetActive(false);
+        continueButton.onClick.AddListener(Continue);
+
     }
 
     // Update is called once per frame
@@ -76,6 +89,11 @@ public class InGameManager : MonoBehaviour
         {
             timer = 0;
             TimeCountDown();
+        }
+        if (cardNum <= 0)
+        {
+            EndLevel();
+            cardNum = 1;
         }
     }
 
@@ -116,8 +134,12 @@ public class InGameManager : MonoBehaviour
     public void StarCount(int star)
     {
         Debug.Log("count star");
+        // Sửa lỗi đoạn này
         // Sửa sau 
         /*if (starCounter >= star)
+
+        if (starCounter >= star)
+
         {
             starCounter = star;
             starCounterText.text = starCounter.ToString();
@@ -163,5 +185,21 @@ public class InGameManager : MonoBehaviour
     public void SetBoolPopup(bool value)
     {
         _setting_popup_animator.SetBool(_open, value);
+    }
+
+    public void EndLevel()
+    {
+        Debug.Log("end level");
+        ToLevelScene();
+    }
+
+    public void ToLevelScene()
+    {
+        SceneManager.LoadSceneAsync("LevelScene");
+    }
+
+    public void DeleteCard()
+    {
+        if (cardNum > 0) cardNum--;
     }
 }

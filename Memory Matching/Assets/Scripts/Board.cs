@@ -192,6 +192,10 @@ public class Board : MonoBehaviour
         if (code == 0)
         {
             Destroy(obj.gameObject);
+          // Sửa lỗi đoạn này 
+            //obj.gameObject.GetComponent<CardController>().CardMatched();
+            InGameManager.Instance.DeleteCard();
+
         }
         else if (code == 1)
         {
